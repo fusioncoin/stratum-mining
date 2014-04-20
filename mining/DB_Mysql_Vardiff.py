@@ -24,7 +24,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
 
         self.execute(
             """
-            Select `id` from `shares_mm`
+            Select `id` from `shares`
             WHERE `solution` = %(solution)s
             LIMIT 1
             """,
@@ -39,7 +39,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
             # Note: difficulty = -1 here
             self.execute(
                 """
-                UPDATE `shares_mm`
+                UPDATE `shares`
                 SET `upstream_result` = %(result)s
                 WHERE `solution` = %(solution)s
                 AND `id` = %(id)s
@@ -56,7 +56,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
         else:
             self.execute(
                 """
-                INSERT INTO `shares_mm`
+                INSERT INTO `shares`
                 (time, rem_host, username, our_result, 
                   upstream_result, reason, solution)
                 VALUES 
@@ -105,7 +105,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
 
             self.execute(
                 """
-                INSERT INTO `shares_mm`
+                INSERT INTO `shares`
                 (time, rem_host, username, our_result, 
                   upstream_result, reason, solution, difficulty)
                 VALUES 
@@ -141,7 +141,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
 
             self.execute(
                 """
-                INSERT INTO `shares`
+                INSERT INTO `shares_mm`
                 (time, rem_host, username, our_result, 
                   upstream_result, reason, solution, difficulty)
                 VALUES 
@@ -175,7 +175,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
 
         self.execute(
             """
-            Select `id` from `shares`
+            Select `id` from `shares_mm`
             WHERE `solution` = %(solution)s
             LIMIT 1
             """,
@@ -190,7 +190,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
             # Note: difficulty = -1 here
             self.execute(
                 """
-                UPDATE `shares`
+                UPDATE `shares_mm`
                 SET `upstream_result` = %(result)s
                 WHERE `solution` = %(solution)s
                 AND `id` = %(id)s
@@ -207,7 +207,7 @@ class DB_Mysql_Vardiff(DB_Mysql.DB_Mysql):
         else:
             self.execute(
                 """
-                INSERT INTO `shares`
+                INSERT INTO `shares_mm`
                 (time, rem_host, username, our_result, 
                   upstream_result, reason, solution)
                 VALUES 
